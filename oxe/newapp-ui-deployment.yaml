@@ -14,7 +14,7 @@ spec:
         app: newapp-ui
     spec:
       containers:
-      - image: docker/cuongtran630/newrepository
+      - image: hub.docker.com/cuongtran630/newrepository
         name: newapp-ui
         ports:
         - containerPort: 80
