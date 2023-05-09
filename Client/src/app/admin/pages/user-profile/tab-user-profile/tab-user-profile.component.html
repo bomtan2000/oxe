@@ -1,0 +1,92 @@
+<div class="active tab-pane" id="settings">
+    <form name="formaddnew" class="form-horizontal" (ngSubmit)="f.form.valid && updateProfile()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">{{languages.firstname || 'First Name'}}</label>
+
+            <div class="col-sm-4">
+                <input type="text" class="form-control" disabled [(ngModel)]="model.firstName" #firstName="ngModel"
+                    id="FirstName" name="firstName" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">{{languages.lastname || 'Last Name'}}</label>
+
+            <div class="col-sm-4">
+                <input type="text" class="form-control" disabled [(ngModel)]="model.lastName" #lastname="ngModel"
+                    id="lastName" name="lastName" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">{{languages.employeename || 'Employee Name'}}</label>
+
+            <div class="col-sm-4">
+                <input type="text" [(ngModel)]="model.displayName" disabled name="employeeName" #employeeName="ngModel"
+                    class="form-control" id="employeename" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">{{languages.mobileno || 'Mobile No'}}</label>
+
+            <div class="col-sm-4">
+                <input type="text" class="form-control" disabled id="mobile" [(ngModel)]="model.mobileNo" name="mobile"
+                    #mobile="ngModel">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">{{languages.email || 'Email'}}</label>
+
+            <div class="col-sm-4">
+                <input type="email" class="form-control" id="email" [(ngModel)]="model.email" name="email"
+                    #email="ngModel">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputSkills" class="col-sm-2 control-label">{{languages.language || 'Language'}}</label>
+
+            <div class="col-sm-4">
+                <select class="form-control" [(ngModel)]="model.language" name="language" #language="ngModel"
+                    class="form-control" name="language">
+                    <!-- <option *ngFor="let c of languages" [ngValue]="c.codeId">{{c.codeDesc}}</option> -->
+                    <option *ngFor="let c of languages1" [ngValue]="c.codeId">
+                        {{languages[c.codeDesc]||c.codeDesc}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputVehicle" class="col-sm-2 control-label">{{languages.vehicle || 'Vehicle'}}</label>
+
+            <div class="col-sm-4">
+                <select class="form-control" [(ngModel)]="model.vehicle" name="vehicle" #language="ngModel"
+                    class="form-control" name="vehicle">
+                    <!-- <option *ngFor="let c of vehicles" [ngValue]="c.codeId">{{c.codeDesc}}</option> -->
+                    <option *ngFor="let c of vehicles" [ngValue]="c.codeId">
+                        {{languages[c.codeDesc]||c.codeDesc}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputVehicleNo" class="col-sm-2 control-label">{{languages.vehicleno || 'Vehicle No'}}</label>
+
+            <div class="col-sm-4">
+                <input type="text" maxlength="12" class="form-control" id="vehicleNo" [(ngModel)]="model.vehicleNo"
+                    name="vehicleNo">
+            </div>
+            <!-- <div class="col-md-2">
+                <button type="button" (click)="openQCodeDownload()" class="btn btn-info btn-sm">{{languages.viewqrcode
+                    || 'View QR Code'}}</button>
+            </div> -->
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button [disabled]="loading" type="submit" class="btn btn-primary">{{languages.submit ||
+                    'Submit'}}</button>
+                <i *ngIf="loading" class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+

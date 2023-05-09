@@ -1,0 +1,22 @@
+.form-control {
+    border: 1px solid #55afeb;
+    font-family: "ubuntu-regular", sans-serif;
+    height: 42px;
+    border-radius: 5px;
+}
+.form-group {
+    margin-bottom: 0px;
+}
+.modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 1px solid #ebedf2;
+    border-radius: 0.3rem;
+    outline: 0;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}

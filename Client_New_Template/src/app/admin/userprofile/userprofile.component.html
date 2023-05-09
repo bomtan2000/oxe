@@ -1,0 +1,134 @@
+<div class="row">
+  <toaster-container></toaster-container>
+    <div class="col-12 col-sm-auto mb-3">
+      <div class="mx-auto" style="width: 140px;">
+        <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+          <img src="../../assets/images/faces/face1.jpg" alt="image" width="140px" height="140px">
+        </div>
+      </div>
+    </div>
+    <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+      <div class="text-center text-sm-left mb-2 mb-sm-0">
+        <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap" style="font-weight:bold">{{model.displayName}}</h4>
+        <p class="mb-0" style="margin-top: 10px;">{{model.email}}</p>
+        <div class="text-muted"><small>Last seen 2 hours ago</small></div>
+        <div class="mt-2">
+          <button class="btn btn-danger" type="button" style="margin-top: 5px;" (click)="fileUpload.click()">
+            <i class="fa fa-fw fa-camera"></i>
+            <span>Change Photo</span>
+          </button>
+          <input type="file" class="file-input"
+            (change)="onFileSelected($event)" #fileUpload>
+        </div>
+      </div>
+      <div class="text-center text-sm-right">
+        <span class="badge badge-danger">Developer</span>
+        <div class="text-muted"><small>Joined 09 Dec 2022</small></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <ngb-tabset type="pills" class="pills-danger">
+            <ngb-tab title="Information">
+              <ng-template ngbTabContent>
+                <div class="custom-tab-user-profile">
+                  <form class="forms-sample" (ngSubmit)="f1.form.valid && updateProfile(f1)" #f1="ngForm" novalidate>
+                    <div class="form-group">
+                      <label class="title-form" for="">First Name</label>
+                      <input type="text" class="form-control" id="" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.firstName" >
+                    </div>
+                    <div class="form-group">
+                      <label class="title-form" for="">Last Name</label>
+                      <input type="text" class="form-control" id="" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.lastName" >
+                    </div>
+                    <div class="form-group">
+                      <label class="title-form" for="">Employee Name</label>
+                      <input type="text" class="form-control" id="" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.displayName">
+                    </div>
+                    <div class="form-group">
+                      <label class="title-form" for="">Mobile No</label>
+                      <input type="text" class="form-control" id="" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.mobileNo">
+                    </div>
+                    <div class="form-group">
+                      <label class="title-form" for="">Email</label>
+                      <input type="text" class="form-control" id="" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.email">
+                    </div>
+                    <div class="form-check form-check-flat form-check-primary">
+                      <label class="title-form" class="form-check-label"></label>
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Change Password">
+              <ng-template ngbTabContent>
+                <div class="custom-tab-user-profile">
+                  <form class="forms-sample" (ngSubmit)="f2.form.valid && updatePassword(f2)" #f2="ngForm">
+                    <div class="form-group">
+                      <label class="title-form" for="exampleInputUsername1">Current Password</label>
+                      <input type="password" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.current_password" #current_password="ngModel" id="current_password">
+                      <span *ngIf="f2.submitted && !current_password.valid" class="help-block-custom">
+                        <i class="fa fa-exclamation-circle" tooltip="Current Password is required" aria-hidden="true"></i>
+                    </span>
+                    <span *ngIf="current_password.hasError('minlength')" class="help-block-custom">
+                        <i class="fa fa-exclamation-circle" tooltip="Current Password must be at least 6 characters long"
+                            aria-hidden="true"></i>
+                    </span>
+                    </div>
+                    <div class="form-group">
+                      <label class="title-form" for="exampleInputEmail1">New Password</label>
+                      <input class="form-control" type="password" [ngModelOptions]="{standalone: true}" [(ngModel)]="model.new_password" #new_password="ngModel" id="new_password"
+                      autocomplete="off" validateEqual="confirm_password" reverse="true" required>
+                      <span *ngIf="f2.submitted && !new_password.valid" class="help-block-custom">
+                        <i class="fa fa-exclamation-circle" tooltip="New Password is required" aria-hidden="true"></i>
+                    </span>
+                    <span *ngIf="new_password.hasError('minlength')" class="help-block-custom">
+                        <i class="fa fa-exclamation-circle" tooltip="New Password must be at least 6 characters long"
+                            aria-hidden="true"></i>
+                    </span>
+                    </div>
+                    <div class="form-group">
+                      <label class="title-form" for="exampleInputPassword1">Confirm Password</label>
+                      <input type="password" name="confirm_password" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelChangePass.confirm_password" #confirm_password="ngModel" reverse="false" class="form-control" id="confirm_password"
+                            autocomplete="off" validateEqual="new_password" required/>
+                        <span [hidden]="confirm_password.valid || (confirm_password.pristine && !f2.submitted)"
+                            class="help-block-custom">
+                            <i class="fa fa-exclamation-circle" tooltip="Confirm Password not match" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <div class="form-check form-check-flat form-check-primary">
+                      <label class="form-check-label"></label>
+                    </div>
+                    <button [disabled]="loading||!f2.form.valid" type="submit" class="btn btn-gradient-primary me-2">{{languages.update || 'Submit'}}</button>
+                  <i *ngIf="loading" class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Timeline">
+              <ng-template ngbTabContent>
+                  <ag-grid-angular
+                  style="width: 100%; height: 500px;"
+                  class="ag-theme-alpine"
+                  [columnDefs]="columnDefs"
+                      [defaultColDef]="defaultColDef"
+                      [rowData]="rowData"
+                      [animateRows]="true"
+                      (gridReady)="onGridReady($event)"
+                      [pagination]="true"
+                      [paginationPageSize]="paginationPageSize"
+                    ></ag-grid-angular>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </div>
+      </div>
+    </div>
+
+  </div>

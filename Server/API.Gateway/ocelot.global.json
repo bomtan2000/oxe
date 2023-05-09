@@ -1,0 +1,23 @@
+{
+  //"ConnectionStrings": {
+  //  "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=_CHANGE_ME;Trusted_Connection=True;MultipleActiveResultSets=true"
+  //}
+  "Routes": 
+    [
+      {
+
+      }
+    ],
+
+  "GlobalConfiguration": {
+    "BaseUrl": ""
+  }
+  {
+    "sdk": {
+      "-": null,
+      "version": "3.1.200",
+      "+": null,
+      "version": "6.0.100"
+    }
+  }
+}

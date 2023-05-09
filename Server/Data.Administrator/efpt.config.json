@@ -1,0 +1,81 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "SSOMasterContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "DB",
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Data.Administrator.EFCore",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "MASTER.Announcement",
+         "ObjectType": 0
+      },
+      {
+         "Name": "MASTER.Announcement_Ack",
+         "ObjectType": 0
+      },
+      {
+         "Name": "MASTER.Announcement_View",
+         "ObjectType": 0
+      },
+      {
+         "Name": "MASTER.Clients",
+         "ObjectType": 0
+      },
+      {
+         "Name": "MASTER.company",
+         "ObjectType": 0
+      },
+      {
+         "Name": "MASTER.Country",
+         "ObjectType": 0
+      },
+      {
+         "Name": "MASTER.CustomsFields",
+         "ObjectType": 0
+      },
+      {
+         "Name": "MASTER.DriverCheckInOut",
+         "ObjectType": 0
+      },
+      {
+         "Name": "MASTER.Drivers",
+         "ObjectType": 0
+      },
+      {
+         "Name": "MASTER.Places",
+         "ObjectType": 0
+      },
+      {
+         "Name": "MASTER.StdCodes",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": ".SSO",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

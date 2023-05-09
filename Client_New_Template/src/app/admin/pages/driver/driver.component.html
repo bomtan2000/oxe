@@ -1,0 +1,119 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+              <form>
+                <div class="row">
+                    <label class="col-md-2 col-form-label" style="text-align: center;">Driver Type</label>
+                    <div class="col-md-2">
+                      <select #typeDriver class="form-control" style="border-radius: 50px;">
+                        <!-- <option *ngFor="let item of listCustomerType">{{item.customerTypeValue}}</option> -->
+                        <option value="driverName">Driver Name</option>
+                        <option value="phoneNumber">Phone</option>
+                    </select>
+                    </div>
+                    <div class="col-md-5" >
+                        <input type="text" class="form-control" id="" style="border-radius: 50px;" #valueDriver>
+                    </div>
+                    <div class="col-md-3">
+                      <button (click)="searchDriver(typeDriver.value, valueDriver.value)" class="btn btn-gradient-danger btn-rounded btn-fw">Search</button>      
+                      <button (click)="openMediumModal(mediumModalContent)" type="button" class="btn btn-gradient-success btn-rounded btn-fw">Add</button>
+                    </div>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>  
+  </div>
+
+  <ag-grid-angular
+     style="width: 100%; height: 85%; margin-top: 15px;"
+     class="ag-theme-alpine"   
+     [columnDefs]="columnDefs"
+     [defaultColDef]="defaultColDef"
+     [rowData]="rowData"
+     [rowSelection]="'multiple'"
+     [animateRows]="true"
+     (gridReady)="onGridReady($event)"
+     (cellClicked)="onCellClicked($event)"
+     [pagination]="true"
+     [paginationPageSize]="paginationPageSize"
+     editType = 'fullRow'
+   ></ag-grid-angular>
+   
+  
+  <ng-template #mediumModalContent let-modal class="modal fade" id="exampleModal-2" aria-labelledby="exampleModalLabel-2">
+      <div class="modal-content">
+          <div class="card-body">
+            <toaster-container></toaster-container>
+              <h4 class="card-title" style="margin-bottom: 40px; font-size :large; text-align: left; color: #09927e; font-size: 22px;">New Driver</h4>
+              <i class="fa fa-fw fa-camera"></i>
+              <form class="forms-sample" #f2="ngForm" (ngSubmit)="f2.form.valid && addNewDriver(f2)">
+                <div class="form-group row" >
+                  <label for="exampleInputUsername2" class="col-sm-4 col-form-label">Driver Name</label>
+                  <div class="col-sm-8 title-mini">
+                    <input type="text" class="form-control" id="exampleInputUsername2" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelAdd.driverName">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputEmail2" class="col-sm-4 col-form-label">Mobile No </label>
+                  <div class="col-sm-8">
+                    <input type="email" class="form-control" id="exampleInputEmail2" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelAdd.mobileNo">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputMobile" class="col-sm-4 col-form-label">DOB</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" id="exampleInputMobile" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelAdd.dob">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-4 col-form-label">Plate Number</label>
+                  <div class="col-sm-8">
+                    <input type="" class="form-control" id="exampleInputPassword2" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelAdd.plateNumber">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-4 col-form-label">Equipemt Type</label>
+                  <div class="col-sm-8">
+                    <input type="" class="form-control" id="exampleInputPassword2" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelAdd.equipemtType">
+                  </div>
+                </div>
+                <!-- <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-4 col-form-label">Company Id</label>
+                  <div class="col-sm-8">
+                    <input type="" class="form-control" id="exampleInputPassword2" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelAdd.companyId">
+                  </div>
+                </div> -->
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-4 col-form-label">Driver Icno</label>
+                  <div class="col-sm-8">
+                    <input type="" class="form-control" id="exampleInputPassword2" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelAdd.driverIcno">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-4 col-form-label">License Class</label>
+                  <div class="col-sm-8">
+                    <input type="" class="form-control" id="exampleInputPassword2" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelAdd.licenseClass">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-4 col-form-label">Reference UserId</label>
+                  <div class="col-sm-8">
+                    <input type="" class="form-control" id="exampleInputPassword2" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelAdd.referenceUserId">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="exampleInputPassword2" class="col-sm-4 col-form-label">Remark</label>
+                  <div class="col-sm-8">
+                    <textarea  style="height: 70px" class="form-control" id="exampleTextarea1" rows="7" [ngModelOptions]="{standalone: true}" [(ngModel)]="modelAdd.remark"></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-success" >Submit</button>
+                  <button type="button" class="btn btn-light" (click)="modal.close()">Cancel</button>
+                </div>
+              </form>
+            </div>
+      </div>
+    </ng-template>

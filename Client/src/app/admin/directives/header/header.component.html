@@ -1,0 +1,75 @@
+<header class="main-header">
+    <!-- Logo -->
+    <app-logo></app-logo>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <span class="title-page-header">{{ titleHeader }}</span>
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown notifications-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope-o"></i>
+                        <span class="label label-success">{{ messageList.length }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">You have {{ messageList.length }} messages</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li *ngFor="let item of messageList">
+                                    <!-- start message -->
+                                    <a href="#">
+                                        <div class="pull-left">
+                                            <img src="{{item.avartar}}" class="img-circle" onError="this.src='../../../../assets/image/128-missing_avatar.svg.png';"
+                                                alt="User Image">
+                                        </div>
+                                        <h4>
+                                            {{item.userName}}
+                                            <small><i class="fa fa-clock-o"></i> {{item.createdDate|date:'dd/MM hh:mm:ss'}}</small>
+                                        </h4>
+                                        <p>{{item.content}}</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer"><a href="#">Clear All Messages</a></li>
+                    </ul>
+                </li>
+
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{{ currentUser?.avartarThumbnail }}" onError="this.src='../../../../assets/image/128-missing_avatar.svg.png';" class="user-image" alt="User Image">
+                        <span class="hidden-xs">{{ currentUser?.displayName }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img src="{{ currentUser?.avartarThumbnail }}" onError="this.src='../../../../assets/image/128-missing_avatar.svg.png';" class="img-circle" alt="User Image">
+
+                            <p>
+                                {{ currentUser?.displayName }} - {{ currentUser?.deptDesc }}
+                                <small>{{ currentUser?.employeeCode}}</small>
+                            </p>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="pull-left">
+                                <a href="#" [routerLink]="['/admin/user-profile']" class="btn btn-default btn-flat">Profile</a>
+                            </div>
+                            <div class="pull-right">
+                                <a href="#" (click)="logout()" class="btn btn-default btn-flat">Sign out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

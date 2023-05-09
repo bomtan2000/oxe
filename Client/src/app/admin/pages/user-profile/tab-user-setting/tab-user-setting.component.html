@@ -1,0 +1,19 @@
+<div class="tab-pane" id="configdashboard">
+    <div class="form-group">
+        <label for="inputSkills" class="col-md-2 control-label">Type Dashboard</label>
+        <div class="col-md-4">
+            <dx-tag-box [dataSource]="simpleProducts" valueExpr="ID" [(value)]="model.typedashboard1" [grouped]=true
+                displayExpr="Name" [searchEnabled]=true>
+            </dx-tag-box>
+        </div>
+        <div class="col-md-6"></div>
+        <div class="clearfix"></div>
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 offset-md-2">
+            <button type="button" (click)="saveTypeDashboard()" class="btn btn-primary pull-right">Submit</button>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\Deploy\TMS.Logging</_PublishTargetUrl>
+    <History>True|2022-12-15T03:50:53.4983721Z;False|2022-12-15T10:48:33.1475739+07:00;True|2022-12-15T10:11:43.7502935+07:00;False|2022-12-15T10:09:17.0644160+07:00;True|2022-12-15T09:49:47.7814492+07:00;</History>
+  </PropertyGroup>
+</Project>

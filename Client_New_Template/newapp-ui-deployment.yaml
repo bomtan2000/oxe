@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newapp-ui
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: newapp-ui
+  template:
+    metadata:
+      labels:
+        app: newapp-ui
+    spec:
+      containers:
+      - image: docker/cuongtran630/newrepository
+        name: newapp-ui
+        ports:
+        - containerPort: 80

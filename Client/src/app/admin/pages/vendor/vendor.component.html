@@ -1,0 +1,103 @@
+<section class="content">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="box box-primary idrequest-search">
+
+                <div class="box-body">
+                    <form class="form-horizontal" name="formsearch" #ff="ngForm">
+                        <div>
+                            <div class="col-md-3">
+                                <div class="form-group custom-form-group">
+                                    <label for="inputEmail3" class="col-sm-4 control-label">Vendor Type</label>
+                                    <div class="col-sm-8">
+                                        <dx-select-box [(value)]="searchModel.vendorType" [dataSource]="listVendorType" displayExpr="customerTypeValue"
+                                            valueExpr="customerTypeCode" [searchEnabled]="true">
+                                        </dx-select-box>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group custom-form-group">
+                                    <!-- <label for="Subject" class="col-sm-4 control-label">{{languages.employee}}</label> -->
+                                    <div class="col-sm-8">
+                                        <dx-text-box [(value)]="searchModel.vendorValue" [showClearButton]="true">
+                                        </dx-text-box>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group custom-form-group">
+                                    <button type="button" (click)="search()" class="btn btn-primary pull-right btn-sm custom-search-btn">Search</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Info boxes -->
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="box box-primary">
+                <div class="box-body">
+                    <dx-data-grid #gridContainer id="gridContainer" [dataSource]="dataSource" keyExpr="companyId" 
+                        (onRowUpdating)="updateCustomer($event)"
+                        (onRowInserting)="addCustomer($event)"
+                        (onRowRemoving)="deleteCustomer($event)">
+                        
+                        <dxo-group-panel [visible]="true"></dxo-group-panel>
+                        <dxo-state-storing [enabled]="true" type="custom"></dxo-state-storing>
+                        <dxo-column-chooser [enabled]="true"></dxo-column-chooser>
+                        <dxo-column-fixing [enabled]="true"></dxo-column-fixing>
+
+                        <dxi-column dataType="string" dataField="companyName" caption="Vendor Name"></dxi-column>
+                        <dxi-column dataType="string" dataField="addr1" caption="Address"></dxi-column>
+                        <dxi-column dataType="string" dataField="areaCode" caption="Postal Code"></dxi-column>
+                        <dxi-column dataType="string" dataField="contactPerson" caption="Contact Person"></dxi-column>
+                        <dxi-column dataType="string" dataField="tel" caption="Mobile No"></dxi-column>
+                        <dxi-column dataType="string" dataField="companyCode" caption="Vendor Code"></dxi-column>
+                        <dxi-column dataType="string" dataField="country" caption="Country"></dxi-column>
+                        <dxi-column dataField="createDate" dataType="date2" caption="Create Date"></dxi-column>
+                        <dxi-column dataType="string" dataField="createUser" caption="Create User"></dxi-column>
+
+                        <!-- <dxi-column caption="" dataField="annId" cellTemplate="diffStatusTemplate"></dxi-column> -->
+                        <dxo-selection mode="single"></dxo-selection>
+
+                        <dxo-pager [showPageSizeSelector]="true" [showNavigationButtons]="true"
+                            [allowedPageSizes]="[10, 20, 50, 100]" [showInfo]="true"></dxo-pager>
+                        <dxo-editing mode="popup" [allowDeleting]="true" [allowUpdating]="true" [allowAdding]="true">
+                            <dxo-popup
+                                title="Add Vendor"
+                                [showTitle]="true"
+                                [width]="700"
+                                [height]="525"
+                            >
+                            </dxo-popup>
+                            <dxo-form>
+                                <dxi-item itemType="group" [colCount]="2" [colSpan]="2">
+                                    <dxi-item dataField="companyName"></dxi-item>
+                                    <dxi-item dataField="companyCode"></dxi-item>
+                                    <dxi-item dataField="addr1"></dxi-item>
+                                    <dxi-item dataField="areaCode"></dxi-item>
+                                    <dxi-item dataField="country"></dxi-item>
+                                </dxi-item>
+
+                            </dxo-form>
+                        </dxo-editing>
+                    </dx-data-grid>
+                </div>
+                <div class="box-footer"></div>
+            </div>
+
+        </div>
+        <!-- /.col -->
+
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    <!-- /.row -->
+</section>

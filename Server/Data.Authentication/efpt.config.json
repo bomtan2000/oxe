@@ -1,0 +1,101 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "SSODBContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": "DB",
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Data.Authentication.EFCore",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "AUTH.Company",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.Country",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.GlobalConfiguration",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.GroupPermission",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.Groups",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.Menu",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.Page",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.Platform",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.RefreshToken",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.StdCodes",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.Systems",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.User2Company",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.User2Group",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.UserDetail",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.UserLogin",
+         "ObjectType": 0
+      },
+      {
+         "Name": "AUTH.Users",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": ".SSO",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

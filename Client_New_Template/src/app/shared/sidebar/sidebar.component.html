@@ -1,0 +1,45 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <!-- <li class="nav-item nav-profile">
+      <a class="nav-link" routerLink="/administrator/dashboard" routerLinkActive #dashboard="routerLinkActive">
+        <div class="nav-profile-image">
+          <img src="assets/images/faces/face1.jpg" alt="profile">
+          <span class="login-status online"></span>           
+        </div>
+        <div class="nav-profile-text">
+          <span class="font-weight-bold mb-2">{{currentUser?.displayName}}</span>
+          <span class="text-secondary text-small">Employee</span>
+        </div>
+        <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+      </a>
+    </li> -->
+    <!-- <li class="nav-item" [ngClass]="{ 'active': icons.isActive }">
+      <a class="nav-link" routerLink="icons/mdi" routerLinkActive #icons="routerLinkActive">
+        <span class="menu-title">Icons</span>
+        <i class="mdi mdi-contacts menu-icon"></i>
+      </a>
+    </li> -->
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }">
+      <a class="nav-link" routerLink="/administrator/dashboard" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Dashboard</span>
+        <i class="mdi mdi-home menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active' : customerPage.isActive || driverPage.isActive || placePage.isActive || stdPage.isActive }">
+      <a class="nav-link" (click)="samplePagesCollapsed = !samplePagesCollapsed"  [attr.aria-expanded]="samplePagesCollapsed" aria-controls="auth">  
+        <span class="menu-title">Master</span>
+        <i class="menu-arrow"></i>
+        <i class="mdi mdi-format-list-bulleted menu-icon menu-icon-cus"></i>
+        
+      </a>
+      <div class="collapse" id="auth" [ngbCollapse]="!samplePagesCollapsed">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" routerLink="/administrator/customer" routerLinkActive="active" #customerPage="routerLinkActive"> Customer </a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/administrator/driver" routerLinkActive="active" #driverPage="routerLinkActive"> Driver </a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/administrator/place" routerLinkActive="active" #placePage="routerLinkActive"> Place </a></li>
+          <li class="nav-item"> <a class="nav-link" routerLink="/administrator/stdcode" routerLinkActive="active" #stdPage="routerLinkActive"> Std Code </a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>

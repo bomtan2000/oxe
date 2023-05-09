@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Deploy\TMS.Authentication</_PublishTargetUrl>
+    <History>True|2022-12-15T03:17:35.8228007Z;False|2022-12-15T10:14:26.9913857+07:00;True|2022-12-15T09:45:47.5053741+07:00;False|2022-12-15T09:40:19.1281708+07:00;True|2022-11-25T16:23:22.3103268+07:00;True|2022-11-23T10:37:57.9187489+07:00;False|2022-11-23T10:35:48.0430881+07:00;True|2022-11-22T16:52:32.7780962+07:00;True|2022-11-22T09:50:08.0148501+07:00;False|2022-11-22T09:17:18.2782102+07:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="SSOContext">
+      <Value>Host=192.168.70.77%3bDatabase=SSO%3bPassword=MPL33!tstb%3bUsername=adminmpl</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>
