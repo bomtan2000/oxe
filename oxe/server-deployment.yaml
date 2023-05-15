@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: logging
+  name: booking
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: logging
+      app: booking
   template:
     metadata:
       labels:
-        app: logging
+        app: booking
     spec:
       containers:
-      - image: cuongtran630/logging
-        name: logging
+      - image: bomtan2000/booking
+        name: booking
         ports:
-        - containerPort: 5003
+        - containerPort: 5008
