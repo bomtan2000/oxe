@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: newapp-ui
+  name: fmbp
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: newapp-ui
+      app: fmbp
   template:
     metadata:
       labels:
-        app: newapp-ui
+        app: fmbp
     spec:
       containers:
-      - image: cuongtran630/newappui
-        name: newapp-ui
+      - image: bomtan2000/fmbp
+        name: fmbp
         ports:
         - containerPort: 80
