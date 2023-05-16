@@ -18,3 +18,5 @@ spec:
         name: rabbitmq
         ports:
         - containerPort: 5672
+
+####
