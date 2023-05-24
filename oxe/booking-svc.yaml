@@ -4,7 +4,7 @@ metadata:
   name: booking
 spec:
   ports:
-  - port: 5008
-    targetPort: 5008
+  - port: 80
+    targetPort: 80
   selector:
     app: booking
