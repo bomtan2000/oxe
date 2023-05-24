@@ -4,7 +4,7 @@ metadata:
   name: authentication
 spec:
   ports:
-  - port: 5006
-    targetPort: 5006
+  - port: 80
+    targetPort: 80
   selector:
     app: authentication
