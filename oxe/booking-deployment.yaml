@@ -17,4 +17,4 @@ spec:
       - image: bomtan2000/booking
         name: booking
         ports:
-        - containerPort: 5008
+        - containerPort: 80
