@@ -4,7 +4,7 @@ metadata:
   name: booking
 spec:
   ports:
-  - port: 5010
-    targetPort: 5010
+  - port: 80
+    targetPort: 80
   selector:
     app: fileupload
