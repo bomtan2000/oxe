@@ -14,7 +14,7 @@ spec:
         app: authentication
     spec:
       containers:
-      - image: bomtan2000/authentication
+      - image: cuongtran630/apiauthentication
         name: authentication
         ports:
         - containerPort: 5006
