@@ -14,7 +14,7 @@ spec:
         app: fmbp
     spec:
       containers:
-      - image: cuongtran630/new
+      - image: cuongtran630/web
         name: fmbp
         ports:
         - containerPort: 80
